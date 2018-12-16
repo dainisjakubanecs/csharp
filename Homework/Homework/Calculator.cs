@@ -74,6 +74,8 @@ namespace Homework
                     {
                         if (b == 0)
                         {                        
+                        {
+                            Console.WriteLine("Nedrīkst dalīt ar nulli!");
                             return 0;
                         }
                         else
@@ -92,7 +94,6 @@ namespace Homework
                         double temp = 1;
                         for (double i = 0; i < b; i++)
                         {
-
                             temp = a * temp;
                         }
                         return temp;
@@ -116,6 +117,9 @@ namespace Homework
                     Console.WriteLine("Nevar dalīt ar nulli!");
                     e = Console.ReadLine();              
                 }               
+            {               
+                Console.WriteLine("Rezultāts ir " + result());                
+                e = Console.ReadLine();
             }            
         }
     }
