@@ -7,60 +7,28 @@ namespace Homework
     class Calculator
     {
         double a;
-        String op;
-        double b;
-        String c;
-        String d;
-        String e;
-
+        String operators;
+        double b;              
 
         public Calculator()
         {           
-            //this.a = a;
-            //this.op = op;
-            //this.b = b;
+            
         }
-        /*public double typeNumber()
-        {
-            Console.WriteLine("Ievadiet skaitli a");
-            String a = Console.ReadLine();
-
-
-            return Convert.ToDouble(a);
-        }
-
-        public double typeNumber1()
-        {
-            Console.WriteLine("Ievadiet skaitli b");
-            String b = Console.ReadLine();
-
-            return Convert.ToDouble(b);
-        }
-
-        public String operators()
-        {
-            Console.WriteLine("Ievadiet operatoru");
-            String a = Console.ReadLine();
-
-            return a;
-        }
-        */
-
+              
         public double result()
         {
-            Console.WriteLine("Ievadiet skaitli a");
-            c = Console.ReadLine();
-            a = Convert.ToDouble(c);
+            Console.WriteLine("Ievadiet skaitli a");           
+            a = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Ievadiet operatoru");
-            op = Console.ReadLine();
+            operators = Console.ReadLine();
 
             Console.WriteLine("Ievadiet skaitli b");
-            d = Console.ReadLine();
-            b = Convert.ToDouble(d);
-            //e = Console.ReadLine();
+            
+            b = Convert.ToDouble(Console.ReadLine());
+            
 
-            switch (op)
+            switch (operators)
             {
                 case "+":
                     {
@@ -103,11 +71,11 @@ namespace Homework
 
         public void result2()
         {           
-            while (e != "exit")
+            do
             {               
-                Console.WriteLine("Rezultāts ir " + result());                
-                e = Console.ReadLine();
-            }            
+                Console.WriteLine("Rezultāts ir " + result());                                
+            }
+            while (!(Console.ReadLine().Equals("exit"))) ;
         }
     }
 }
