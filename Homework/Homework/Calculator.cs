@@ -73,7 +73,6 @@ namespace Homework
                 case "/":
                     {
                         if (b == 0)
-                        {                        
                         {
                             Console.WriteLine("Nedrīkst dalīt ar nulli!");
                             return 0;
@@ -105,18 +104,6 @@ namespace Homework
         public void result2()
         {           
             while (e != "exit")
-            {
-                if (result() != (double)0)
-                {
-                    Console.WriteLine("Rezultāts ir " + result());
-                    
-                    e = Console.ReadLine();                
-                }                             
-                else
-                {
-                    Console.WriteLine("Nevar dalīt ar nulli!");
-                    e = Console.ReadLine();              
-                }               
             {               
                 Console.WriteLine("Rezultāts ir " + result());                
                 e = Console.ReadLine();
