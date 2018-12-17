@@ -14,20 +14,22 @@ namespace Homework
         {           
             
         }
-              
-        public double result()
+
+        public void ievade()
         {
-            Console.WriteLine("Ievadiet skaitli a");           
+            Console.WriteLine("Ievadiet skaitli a");
             a = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Ievadiet operatoru");
             operators = Console.ReadLine();
 
             Console.WriteLine("Ievadiet skaitli b");
-            
             b = Convert.ToDouble(Console.ReadLine());
-            
 
+        }
+
+        public double result()
+        {           
             switch (operators)
             {
                 case "+":
@@ -41,16 +43,13 @@ namespace Homework
                 case "/":
                     {
                         if (b == 0)
-                        {
-                            Console.WriteLine("Nedrīkst dalīt ar nulli!");
+                        {                            
                             return 0;
                         }
                         else
                         {
-
                             return a / b;
                         }
-
                     }
                 case "*":
                     {
@@ -72,8 +71,20 @@ namespace Homework
         public void result2()
         {           
             do
-            {               
-                Console.WriteLine("Rezultāts ir " + result());                                
+            {
+                ievade();
+                if(result() != 0 && result() != -9999)
+                {
+                    Console.WriteLine(a + operators + b + " = " + result());
+                }
+                else if (result() == -9999)
+                {
+                    Console.WriteLine("Ir izvēlēts nepareizs operators!");
+                }
+                else
+                {
+                    Console.WriteLine("Nedrīkst dalīt ar nulli!");
+                }                            
             }
             while (!(Console.ReadLine().Equals("exit"))) ;
         }
