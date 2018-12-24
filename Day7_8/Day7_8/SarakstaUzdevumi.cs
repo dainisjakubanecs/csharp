@@ -9,6 +9,8 @@ namespace Day7_8
         private List<String> lietotaji = new List<String>();
         private List<int> lietotajuNumuri = new List<int>();
         private String ievade;
+        private bool atrasts;
+        private int x;
 
         public void IzvaditLietotajaSaraksts()
         {
@@ -46,8 +48,25 @@ namespace Day7_8
             else
             {
                 lietotajuNumuri.Add(lietotajuNumuri[lietotajuNumuri.Count - 1] + 1);
+            }           
+        }
+
+        private void IevadietID()
+        {
+            Console.WriteLine("Ievadiet ID");
+            int id = Convert.ToInt16(Console.ReadLine());
+
+            atrasts = false;
+            x = 0;
+            for (int i = 0; i < lietotajuNumuri.Count; i++)
+            {
+                if (id == lietotajuNumuri[i])
+                {
+                    x = i;
+                    atrasts = true;
+                    break;
+                }
             }
-            
         }
       
 
@@ -60,23 +79,11 @@ namespace Day7_8
             // no tā varam dabūt indeksu. int atrastaisSkaitlis = i;
             //so indeksu varam izmantot, lai izvadītu Console.WriteLine(lietotaji[atrastaisSkaitlis]);
 
-            Console.WriteLine("Ievadiet ID");
-            int id = Convert.ToInt16(Console.ReadLine());
+            IevadietID();
 
-            bool atrasts = false;
-            int x = 0;
-            for (int i = 0; i < lietotajuNumuri.Count; i++)
-            {
-                if (id == lietotajuNumuri[i])
-                {
-                    x = i;
-                    atrasts = true;                 
-                    break;
-                }                
-            }
             if (!atrasts)
             {
-                Console.WriteLine("Skaitlis netika atrasts!");
+                Console.WriteLine("ID netika atrasts!");
             }
             else
             {
@@ -84,19 +91,47 @@ namespace Day7_8
             }           
         }
 
+        public void Izdzest()
+        {
+            IevadietID();
+
+            Console.WriteLine("Dzēstais lietotājs ir " + lietotaji[x]);
+            lietotaji.RemoveAt(x);
+            lietotajuNumuri.RemoveAt(x);
+            Console.WriteLine("Ieraksts dzēsts!");
+        
+
+            if (!atrasts)
+            {
+                Console.WriteLine("ID netika atrasts!");
+            }
+                           
+        }
+
         public void Interfeiss() { 
             while (ievade != "0")
             {
-                Console.WriteLine("+, lai pievienotu, 2, lai izvadītu sarakstu,0, lai izietu");
+                Console.WriteLine("1, lai pievienotu, 2, lai izvadītu sarakstu, 0, lai izietu," +
+                    " 3, lai atrastu ID, 4, lai izdzēstu ID");
                 ievade = Console.ReadLine();
                 switch (ievade)
                 {
-                    case "+":                       
+                    case "1":                       
                         PievienotSarakstam();
                         break;                        
                     case "2":
                         IzvaditLietotajaSaraksts();
-                        break;                       
+                        break;
+                    case "3":
+                        Search();
+                        break;
+                    case "4":
+                        Izdzest();
+                        break;
+                    case "5":
+                        FailaRakstisanasPiemers fails = new FailaRakstisanasPiemers();
+                        fails.Rakstit(lietotaji);
+                        break;
                     case "0":
                         break;
                     default:                       

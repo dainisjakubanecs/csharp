@@ -7,12 +7,17 @@ namespace Day7_8
         static void Main(string[] args)
         {
             SarakstaUzdevumi sarakstaUzdevumi = new SarakstaUzdevumi();
+            FailaRakstisanasPiemers failaRakstisanasPiemers = new FailaRakstisanasPiemers();
+            Majasdarbs majasdarbs = new Majasdarbs();
 
-            
-            sarakstaUzdevumi.Interfeiss();
+            //sarakstaUzdevumi.Interfeiss();
             //sarakstaUzdevumi.PievienotNumuru();
             //sarakstaUzdevumi.PievienotSarakstam();
-            sarakstaUzdevumi.Search();
+            //sarakstaUzdevumi.Search();
+            //sarakstaUzdevumi.Izdzest();
+
+            //failaRakstisanasPiemers.LasitSaskaitit();
+            majasdarbs.DzejolisNolasit();
 
             Console.ReadLine();
         }
